@@ -18,6 +18,7 @@
                "role": "Developer"
                	}],
 	"require": {
+		"php": "~5.6.0",
 		"laravel/framework": "4.2.*",
 		"patricktalmadge/bootstrapper": "5.5.*",
 		"intervention/image": "2.1.*",
@@ -25,7 +26,8 @@
         "composer/composer": "1.0.0-alpha9",
         "knplabs/github-api": "1.4.*",
         "guzzlehttp/guzzle": "5.2.*",
-        "aws/aws-sdk-php": "2.7.*"
+        "aws/aws-sdk-php": "2.7.*",
+		"rollbar/rollbar": "~0.12.0"
 	},
 	"require-dev": {
 		"barryvdh/laravel-debugbar": "~1.8@dev",
@@ -55,15 +57,9 @@
 		"post-update-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize"
-		],
-		"tests": [
-			"php artisan migrate:refresh --force",
-			"php artisan db:seed --class=\"TestSeeder\" --force",
-			"vendor/bin/phpunit --verbose"
 		]
 	},
 	"config": {
 		"preferred-install": "dist"
-	},
-	"minimum-stability": "dev"
+	}
 }
