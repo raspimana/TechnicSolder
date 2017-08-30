@@ -64,5 +64,5 @@
     },
     "config": {
         "preferred-install": "dist"
-    },
+    }
 }
