@@ -146,7 +146,7 @@ $('#add').submit(function(e) {
 			data: $("#add").serialize(),
 			success: function (data) {
 				if (data.status == "success") {
-					$("#add-row").after('<tr><td></td><td>' + data.version + '</td><td>' + data.md5 + '</td><td><a href="' + mirror_url + 'mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip" target="_blank">{mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip</a></td><td>' + data.filesize + '</td><td></td></tr>');
+					$("#add-row").after('<tr><td></td><td>' + data.version + '</td><td>' + data.md5 + '</td><td><a href="' + mirror_url + 'mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip" target="_blank">' + mirror_url + 'mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip</a></td><td>' + data.filesize + '</td><td></td></tr>');
 					$.jGrowl('Added mod version at ' + data.version, { group: 'alert-success' });
 				} else if (data.status == "warning") {
 					$("#add-row").after('<tr><td></td><td>' + data.version + '</td><td>' + data.md5 + '</td><td><a href="' + mirror_url + 'mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip" target="_blank">' + mirror_url + 'mods/{{ $mod->name }}/{{ $mod->name }}-' + data.version + '.zip</a></td><td>' + data.filesize + '</td><td></td></tr>');
@@ -198,7 +198,7 @@ $('.delete').click(function(e) {
 	e.preventDefault();
 	$.ajax({
 		type: "GET",
-		url: "{{ URL::to('mod/delete-version/') }}" + $(this).attr('rel'),
+		url: "{{ URL::to('mod/delete-version') }}/" + $(this).attr('rel'),
 		success: function (data) {
 			if (data.status == "success") {
 				$('.version[rel=' + data.version_id + ']').fadeOut();
